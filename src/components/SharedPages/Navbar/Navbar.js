@@ -1,11 +1,30 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthProvider';
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(result => {
+                const user = result.user;
+                toast.success('Logout successfully!', user?.displayName);
+            })
+            .catch(error => {
+                // const errorMessage = error.message;
+                // toast.error(errorMessage)
+            })
+    }
+
     const navItems = <>
-        <li><a>Blog</a></li>
-        <li><Link to={'/login'}>Login</Link></li>
+        <li><Link to={'/blog'}>Blog</Link></li>
+        {
+            user ? <button onClick={handleLogOut}>Logout</button> : <li><Link to={'/login'}>Login</Link></li>
+        }
     </>
+
     return (
         <div className=' bg-base-100'>
             <div className="navbar container mx-auto flex justify-between">

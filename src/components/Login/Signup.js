@@ -7,14 +7,22 @@ import { AuthContext } from '../../contexts/AuthProvider';
 import './SignUp.css';
 
 const Signup = () => {
-    const { createUser } = useContext(AuthContext);
+    const { createUser, updateUser } = useContext(AuthContext);
     const { register, handleSubmit } = useForm();
     const handleLogin = data => {
         // console.log(data)
         createUser(data.email, data.password)
-            .then(result => {
-                const user = result.user;
-                toast.success('Successfully created user!', user?.displayName);
+            .then(() => {
+                toast.success('Successfully created user!');
+                const userInfo = {
+                    displayName: data.name
+                }
+                updateUser(userInfo)
+                    .then(() => {
+                    })
+                    .catch(() => {
+
+                    })
             })
             .catch(error => {
                 const errorMessage = error.message;

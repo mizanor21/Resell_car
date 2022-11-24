@@ -12,7 +12,7 @@ const Login = () => {
         loginUser(data.email, data.password)
             .then(result => {
                 const user = result.user;
-                toast.success('Successfully login!', user?.displayName);
+                toast.success(`Successfully login! - ${user?.displayName}`);
             })
             .catch(error => {
                 const errorMessage = error.message;
