@@ -1,12 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from "react-hook-form";
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import loginLogo from '../../assets/logo/loginLogo.webp';
+import { AuthContext } from '../../contexts/AuthProvider';
 
 const Login = () => {
+    const { loginUser } = useContext(AuthContext);
     const { register, handleSubmit } = useForm();
     const handleLogin = data => {
-        console.log(data)
+        loginUser(data.email, data.password)
+            .then(result => {
+                const user = result.user;
+                toast.success('Successfully login!', user?.displayName);
+            })
+            .catch(error => {
+                const errorMessage = error.message;
+                toast.error(errorMessage);
+            })
     }
     return (
         <div className='flex justify-center items-center min-h-screen'>
