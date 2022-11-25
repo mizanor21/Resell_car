@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { useForm } from "react-hook-form";
 import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import loginLogo from '../../assets/logo/loginLogo.webp';
 import { AuthContext } from '../../contexts/AuthProvider';
 import './SignUp.css';
@@ -9,6 +9,8 @@ import './SignUp.css';
 const Signup = () => {
     const { createUser, googleLogin, updateUser } = useContext(AuthContext);
     const { register, handleSubmit } = useForm();
+    const navigate = useNavigate();
+
     const handleLogin = data => {
         // console.log(data.user)
         createUser(data.email, data.password)
@@ -20,6 +22,7 @@ const Signup = () => {
                 updateUser(userInfo)
                     .then(() => {
                         saveUserInfo(data?.name, data?.email, data?.user);
+                        navigate('/');
                     })
                     .catch(() => {
 
@@ -50,7 +53,7 @@ const Signup = () => {
             .then(result => {
                 const user = result.user;
                 toast.success('Successfully login');
-
+                navigate('/')
             })
             .catch(error => {
                 const errorMessage = error.message;
