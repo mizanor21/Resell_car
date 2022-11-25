@@ -7,22 +7,50 @@ import { AuthContext } from '../../contexts/AuthProvider';
 import './SignUp.css';
 
 const Signup = () => {
-    const { createUser, updateUser } = useContext(AuthContext);
+    const { createUser, googleLogin, updateUser } = useContext(AuthContext);
     const { register, handleSubmit } = useForm();
     const handleLogin = data => {
-        console.log(data)
+        // console.log(data.user)
         createUser(data.email, data.password)
             .then(() => {
-                toast.success('Successfully created user!');
+                toast.success('Successfully created user');
                 const userInfo = {
                     displayName: data.name
                 }
                 updateUser(userInfo)
                     .then(() => {
+                        saveUserInfo(data?.name, data?.email, data?.user);
                     })
                     .catch(() => {
 
                     })
+            })
+            .catch(error => {
+                const errorMessage = error.message;
+                toast.error(errorMessage);
+            })
+    }
+
+    const saveUserInfo = (name, email, userType) => {
+        const userInfo = { name, email, userType }
+        // console.log(userInfo);
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(userInfo)
+        })
+            .then(res => res.json())
+            .then(error => console.log(error))
+    }
+
+    const handleGoogleLogin = () => {
+        googleLogin()
+            .then(result => {
+                const user = result.user;
+                toast.success('Successfully login');
+
             })
             .catch(error => {
                 const errorMessage = error.message;
@@ -57,16 +85,16 @@ const Signup = () => {
                         <span className="label-text">Choose user type (Buyer or Seller)*</span>
                     </label>
                     <select {...register("user")} className="select w-full mb-5 input-bordered" required>
-                        <option >Buyer</option>
-                        <option >Seller</option>
+                        <option value="buyer">Buyer</option>
+                        <option value="seller">Seller</option>
                     </select>
                     <input className='btn btn-black w-full mt-5 mb-3' type="submit" />
                     <div className="text-center">
                         <small >Already have an account? <Link to={'/login'} className='text-emerald-500'>Please login</Link></small>
                     </div>
                     <div className="divider">OR</div>
-                    <button className="btn btn-outline w-full">Continue with google</button>
                 </form>
+                <button onClick={handleGoogleLogin} className="btn btn-outline w-full">Continue with google</button>
             </div>
         </div>
     );
