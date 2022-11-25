@@ -10,7 +10,7 @@ const Signup = () => {
     const { createUser, updateUser } = useContext(AuthContext);
     const { register, handleSubmit } = useForm();
     const handleLogin = data => {
-        // console.log(data)
+        console.log(data)
         createUser(data.email, data.password)
             .then(() => {
                 toast.success('Successfully created user!');
@@ -53,16 +53,13 @@ const Signup = () => {
                         </label>
                         <input {...register("password")} type="password" className="input input-bordered w-full" />
                     </div>
-                    <div className="flex mt-5">
-                        <div className="flex mr-5">
-                            <input type="radio" {...register("buyer")} name="radio-1" value="buyer" className="radio" checked />
-                            <p>Buyer</p>
-                        </div>
-                        <div className="flex">
-                            <input type="radio" {...register("seller")} name="radio-1" value="seller" className="radio" />
-                            <p>Seller</p>
-                        </div>
-                    </div>
+                    <label className="label">
+                        <span className="label-text">Choose user type (Buyer or Seller)*</span>
+                    </label>
+                    <select {...register("user")} className="select w-full mb-5 input-bordered" required>
+                        <option >Buyer</option>
+                        <option >Seller</option>
+                    </select>
                     <input className='btn btn-black w-full mt-5 mb-3' type="submit" />
                     <div className="text-center">
                         <small >Already have an account? <Link to={'/login'} className='text-emerald-500'>Please login</Link></small>

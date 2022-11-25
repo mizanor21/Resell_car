@@ -1,10 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Category = ({ category }) => {
-    const { category_name, img } = category;
+    const { _id, category_name, img } = category;
     console.log(category);
     return (
-        <button>
+        <Link to={`/products/${_id}`}>
             <div className=' cursor-pointer'>
                 <div className="card bg-base-100 border-[4px] hover:border-yellow-400 shadow-2xl rounded-[20px] image-full">
                     <figure><img src={img} alt="Shoes" /></figure>
@@ -13,7 +14,7 @@ const Category = ({ category }) => {
                     </div>
                 </div>
             </div>
-        </button>
+        </Link>
     );
 };
 
