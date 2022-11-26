@@ -1,7 +1,7 @@
 import React from 'react';
 import verified_icon from '../../../assets/verify_logo/verified.png'
 
-const Product = ({ product }) => {
+const Product = ({ product, setProduct }) => {
     const { auther, category_id, details, img, location, original_price, reseal_price, title, year_used } = product;
     return (
         <div className='border-2 rounded-2xl'>
@@ -34,7 +34,7 @@ const Product = ({ product }) => {
                     </div>
                     <hr />
                     <div className="card-actions justify-end mt-5">
-                        <button className="btn btn-outline btn-warning">Book Now</button>
+                        <label onClick={() => setProduct(product)} htmlFor="product_modal" className="btn btn-outline btn-warning">Book Now</label>
                     </div>
                 </div>
             </div>

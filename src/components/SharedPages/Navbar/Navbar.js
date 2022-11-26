@@ -20,9 +20,16 @@ const Navbar = () => {
     }
 
     const navItems = <>
+        <li><Link to={'/'}>Home</Link></li>
         <li><Link to={'/blog'}>Blog</Link></li>
         {
-            user ? <button onClick={handleLogOut}>Logout</button> : <li><Link to={'/login'}>Login</Link></li>
+            user ?
+                <>
+                    <li><Link className='mr-3' to={'/dashboard'}>Dashboard</Link></li>
+                    <button onClick={handleLogOut}>Logout</button>
+                </>
+                :
+                <li><Link to={'/login'}>Login</Link></li>
         }
     </>
 

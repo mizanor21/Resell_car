@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import Product from './Product';
+import ProductModal from './ProductModal/ProductModal';
 import './Products.css'
 
 const Products = () => {
-    const products = useLoaderData();
-    console.log(products);
+    const products = useLoaderData({});
+    const [product, setProduct] = useState({});
+    console.log(product);
     return (
         <div className=''>
             <div className="flex justify-center items-center products">
@@ -32,10 +34,11 @@ const Products = () => {
             <div className="container mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 my-10">
                     {
-                        products.map(product => <Product key={product._id} product={product}></Product>)
+                        products.map(product => <Product key={product._id} product={product} setProduct={setProduct}></Product>)
                     }
                 </div>
             </div>
+            <ProductModal product={product}></ProductModal>
         </div>
     );
 };
