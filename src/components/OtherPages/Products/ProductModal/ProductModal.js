@@ -49,25 +49,25 @@ const ProductModal = ({ product }) => {
                             <label className="label">
                                 <span className="label-text">User name</span>
                             </label>
-                            <input type="text" defaultValue={user?.displayName} className="input input-bordered w-full" />
+                            <input type="text" defaultValue={user?.displayName} className="input input-bordered w-full" disabled />
                         </div>
                         <div className="form-control w-full">
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="text" defaultValue={user?.email} className="input input-bordered w-full" />
+                            <input type="text" defaultValue={user?.email} className="input input-bordered w-full" disabled />
                         </div>
                         <div className="form-control w-full">
                             <label className="label">
                                 <span className="label-text">Product title</span>
                             </label>
-                            <input type="text" defaultValue={title} className="input input-bordered w-full" />
+                            <input type="text" defaultValue={title} className="input input-bordered w-full" disabled />
                         </div>
                         <div className="form-control w-full">
                             <label className="label">
                                 <span className="label-text">Price</span>
                             </label>
-                            <input type="price" defaultValue={reseal_price} className="input input-bordered w-full" readOnly />
+                            <input type="price" defaultValue={reseal_price} className="input input-bordered w-full" readOnly disabled />
                         </div>
                         <input className="btn btn-outline btn-warning" type="submit" value="Confirm" />
                     </form>
