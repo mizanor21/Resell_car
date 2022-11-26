@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { AuthContext } from '../../../../contexts/AuthProvider';
+import MyOrder from './MyOrder';
 
 const MyOrders = () => {
     const { user } = useContext(AuthContext);
@@ -15,7 +16,11 @@ const MyOrders = () => {
     })
     return (
         <div>
-            this is my orders page!
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 my-10 mx-5">
+                {
+                    booking_products.map(booking_product => <MyOrder key={booking_product._id} booking_product={booking_product}></MyOrder>)
+                }
+            </div>
         </div>
     );
 };
