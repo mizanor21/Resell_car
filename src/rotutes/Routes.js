@@ -6,6 +6,7 @@ import Signup from '../components/Login/Signup';
 import Blog from '../components/OtherPages/Blog/Blog';
 import Dashboard from '../components/OtherPages/Dashboard/Dashboard';
 import DashboardLayout from '../components/OtherPages/Dashboard/DashboardLayout';
+import MyOrders from '../components/OtherPages/Dashboard/MyOrders/MyOrders';
 import Products from '../components/OtherPages/Products/Products';
 import Main from '../layouts/Main';
 import PrivetRoute from './PrivetRoute/PrivetRoute';
@@ -45,7 +46,11 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard',
                 element: <Dashboard></Dashboard>
-            }
+            },
+            {
+                path: '/dashboard/my-orders',
+                element: <MyOrders></MyOrders>
+            },
         ]
     },
     {
