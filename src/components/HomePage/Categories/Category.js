@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Category = ({ category }) => {
     const { _id, category_name, img } = category;
-    console.log(category);
+    // console.log(category);
     return (
         <Link to={`/products/${_id}`}>
             <div className=' cursor-pointer'>

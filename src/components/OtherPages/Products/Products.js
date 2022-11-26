@@ -7,7 +7,7 @@ import './Products.css'
 const Products = () => {
     const products = useLoaderData({});
     const [product, setProduct] = useState({});
-    console.log(product);
+    // console.log(product);
     return (
         <div className=''>
             <div className="flex justify-center items-center products">

@@ -8,7 +8,7 @@ const Categories = () => {
             .then(res => res.json())
             .then(data => setCategories(data))
     }, [])
-    console.log(categories)
+    // console.log(categories)
     return (
         <div className='container mx-5 md:mx-auto my-10'>
             <div className="flex">
