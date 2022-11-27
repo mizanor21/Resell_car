@@ -1,4 +1,4 @@
-import { React, useContext, useEffect } from 'react';
+import { React, useContext } from 'react';
 // import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../../../contexts/AuthProvider';
@@ -6,40 +6,6 @@ import { AuthContext } from '../../../../contexts/AuthProvider';
 const ProductModal = ({ product }) => {
     const { user } = useContext(AuthContext);
     const { img, reseal_price, title, phone_number } = product;
-    // console.log(product)
-    // const bookingInfo = {
-    //     email: user.email,
-    //     displayName: user.displayName,
-
-    // }
-    // const { register, handleSubmit } = useForm({});
-
-    // const handleConfirm = data => {
-    //     console.log(data);
-    //     fetch('http://localhost:5000/booking-products', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-type': 'application/json'
-    //         },
-    //         body: JSON.stringify(data)
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             if (data) {
-    //                 // console.log(data);
-    //                 toast.success('Successfully product booked')
-    //                 // refetch();
-    //             }
-    //             else {
-    //                 toast.error(data.message)
-    //             }
-
-    //         })
-    //         .catch(error => console.error(error));
-
-    // }
-
-
     const handleSubmit = event => {
         event.preventDefault();
         const form = event.target;
@@ -79,9 +45,6 @@ const ProductModal = ({ product }) => {
             })
             .catch(error => console.error(error));
     }
-    // useEffect(() => {
-    //     reset({ user, product })
-    // }, [reset, user, product])
     return (
         <div>
             <input type="checkbox" id="product_modal" className="modal-toggle" />
@@ -96,35 +59,6 @@ const ProductModal = ({ product }) => {
                         <input name='image' defaultValue={img} type="text" className="input input-bordered w-full hidden" disabled />
                         <input type="submit" placeholder='' className='btn btn-accent' value="Submit" />
                     </form>
-
-                    {/* <form onSubmit={handleSubmit(handleConfirm)} className="grid grid-cols-1 gap-5">
-
-                        <div className="form-control w-full">
-                            <label className="label">
-                                <span className="label-text">User name</span>
-                            </label>
-                            <input {...register("displayName")} type="text" defaultValue={user?.displayName} className="input input-bordered w-full" disabled />
-                        </div>
-                        <div className="form-control w-full">
-                            <label className="label">
-                                <span className="label-text">Email</span>
-                            </label>
-                            <input {...register("email")} type="text" defaultValue={user?.email} className="input input-bordered w-full" disabled />
-                        </div>
-                        <div className="form-control w-full">
-                            <label className="label">
-                                <span className="label-text">Product title</span>
-                            </label>
-                            <input {...register("title")} type="text" defaultValue={title} className="input input-bordered w-full" disabled />
-                        </div>
-                        <div className="form-control w-full">
-                            <label className="label">
-                                <span className="label-text">Price</span>
-                            </label>
-                            <input {...register("price")} type="price" defaultValue={reseal_price} className="input input-bordered w-full" readOnly disabled />
-                        </div>
-                        <input className="btn btn-outline btn-warning" type="submit" value="Confirm" />
-                    </form> */}
                 </label>
             </label>
         </div>
