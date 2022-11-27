@@ -4,14 +4,15 @@ import { AuthContext } from '../../../../contexts/AuthProvider';
 
 const AddAProduct = () => {
     const { user } = useContext(AuthContext);
-    const [title, setTitle] = useState('');
+    const [category, setCategory] = useState('');
 
     const handleSubmit = event => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
         const email = form.email.value;
-        const phoneNumber = form.phoneNumber.value
+        const phoneNumber = form.phoneNumber.value;
+        const title = form.title.value;
         const img = form.image.value;
         const details = form.details.value;
         const location = form.location.value;
@@ -24,10 +25,11 @@ const AddAProduct = () => {
             auther: name,
             email,
             phoneNumber,
+            title,
             img,
             details,
             location,
-            category_id: title,
+            category_id: category,
             original_price,
             reseal_price,
             year_used,
@@ -72,7 +74,7 @@ const AddAProduct = () => {
                         <label className="label">
                             <span className="label-text">Select your product category.</span>
                         </label>
-                        <select value={title} onChange={e => setTitle(e.target.value)} className="select select-bordered" required>
+                        <select value={category} onChange={e => setCategory(e.target.value)} className="select select-bordered" required>
                             <option disabled selected>Pick one</option>
                             <option value={"637ff3cdf83a1fea58a72885"}>Toyota 4Runner</option>
                             <option value={"637ff3cdf83a1fea58a72884"}>BMW Q54gN Prime</option>
@@ -80,6 +82,10 @@ const AddAProduct = () => {
                         </select>
                     </div>
 
+                    <label className="label">
+                        <span className="label-text">Product model no.</span>
+                    </label>
+                    <input name='title' type="text" placeholder='ex. BMW Q54gN Prime' className="input input-bordered w-full" required />
                     <label className="label">
                         <span className="label-text">Image URL</span>
                     </label>
@@ -104,7 +110,7 @@ const AddAProduct = () => {
                         <span className="label-text">Details product</span>
                     </label>
                     <input name='details' type="text" placeholder='Details product information provide' className="w-full input input-bordered mb-5" required></input>
-                    <input type="submit" placeholder='' className='btn btn-accent' value="Submit" />
+                    <input type="submit" className='btn btn-warning text-white' value="Add Product" />
                 </form>
             </fieldset>
         </div >
