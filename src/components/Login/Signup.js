@@ -34,8 +34,8 @@ const Signup = () => {
             })
     }
 
-    const saveUserInfo = (name, email, userType) => {
-        const userInfo = { name, email, userType }
+    const saveUserInfo = (name, email, role) => {
+        const userInfo = { name, email, role }
         // console.log(userInfo);
         fetch('http://localhost:5000/users', {
             method: 'POST',
