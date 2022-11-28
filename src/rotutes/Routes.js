@@ -7,8 +7,10 @@ import Blog from '../components/OtherPages/Blog/Blog';
 import AddAProduct from '../components/OtherPages/Dashboard/AddAProduct/AddAProduct';
 import Dashboard from '../components/OtherPages/Dashboard/Dashboard';
 import DashboardLayout from '../components/OtherPages/Dashboard/DashboardLayout';
+import MyBuyers from '../components/OtherPages/Dashboard/MyBuyers/MyBuyers';
 import MyOrders from '../components/OtherPages/Dashboard/MyOrders/MyOrders';
 import MyProducts from '../components/OtherPages/Dashboard/MyProducts/MyProducts';
+import MySeller from '../components/OtherPages/Dashboard/MySellers/MySeller';
 import Products from '../components/OtherPages/Products/Products';
 import Main from '../layouts/Main';
 import PrivetRoute from './PrivetRoute/PrivetRoute';
@@ -60,6 +62,14 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/myproducts',
                 element: <MyProducts></MyProducts>
+            },
+            {
+                path: '/dashboard/alluser',
+                element: <MyBuyers></MyBuyers>
+            },
+            {
+                path: '/dashboard/mysellers',
+                element: <MySeller></MySeller>
             }
         ]
     },
