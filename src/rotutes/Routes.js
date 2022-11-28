@@ -39,7 +39,7 @@ const router = createBrowserRouter([
             {
                 path: '/products/:id',
                 element: <PrivetRoute><Products></Products></PrivetRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/products/${params.id}`)
+                loader: ({ params }) => fetch(`https://car-world-server-mizanor21.vercel.app/products/${params.id}`)
             }
         ]
     },

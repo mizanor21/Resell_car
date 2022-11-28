@@ -37,7 +37,7 @@ const Signup = () => {
     const saveUserInfo = (name, email, role) => {
         const userInfo = { name, email, role }
         // console.log(userInfo);
-        fetch('http://localhost:5000/users', {
+        fetch('https://car-world-server-mizanor21.vercel.app/users', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'

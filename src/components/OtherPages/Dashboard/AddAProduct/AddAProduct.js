@@ -35,7 +35,7 @@ const AddAProduct = () => {
             year_used,
         }
         console.log(addProduct)
-        fetch('http://localhost:5000/products', {
+        fetch('https://car-world-server-mizanor21.vercel.app/products', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'

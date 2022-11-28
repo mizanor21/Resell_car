@@ -5,7 +5,7 @@ import MyProduct from './MyProduct';
 
 const MyProducts = () => {
     const { user } = useContext(AuthContext);
-    const url = `http://localhost:5000/products?email=${user?.email}`;
+    const url = `https://car-world-server-mizanor21.vercel.app/products?email=${user?.email}`;
     // console.log(url);
 
     const { data: products = [] } = useQuery({

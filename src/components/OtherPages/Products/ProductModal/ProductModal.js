@@ -24,7 +24,7 @@ const ProductModal = ({ product }) => {
             img
         }
 
-        fetch('http://localhost:5000/booking_products', {
+        fetch('https://car-world-server-mizanor21.vercel.app/booking_products', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'
