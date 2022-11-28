@@ -5,8 +5,8 @@
 ### Client side repository link: https://github.com/programming-hero-web-course-4/b612-used-products-resale-clients-side-mizanor21
 ### Server side repo. link: https://github.com/programming-hero-web-course-4/b612-used-products-resale-server-side-mizanor21
 
-* admin user: 
-* password: 
+* admin user: mizan13103280554@gmail.com
+* password: 12345!
 
 ## We are using Client side code-
 * React JS

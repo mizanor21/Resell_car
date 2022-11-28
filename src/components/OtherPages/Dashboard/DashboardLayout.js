@@ -31,14 +31,14 @@ const DashboardLayout = () => {
 
                         {usersInfo?.role !== 'buyer' && <>
 
-                            <li><Link to={'/dashboard/addProduct'}>Add A Product</Link></li>
-                            <li><Link to={'/dashboard/myproducts'}>My Products</Link></li>
                         </>}
 
                         {usersInfo?.role === 'seller' && <>
-                            <li><Link to={'/dashboard/alluser'}>All Buyer</Link></li>
-                            <li><Link to={'/dashboard/mysellers'}>My Seller</Link></li>
                         </>}
+                        <li><Link to={'/dashboard/addProduct'}>Add A Product</Link></li>
+                        <li><Link to={'/dashboard/myproducts'}>My Products</Link></li>
+                        <li><Link to={'/dashboard/alluser'}>All Buyer</Link></li>
+                        <li><Link to={'/dashboard/mysellers'}>My Seller</Link></li>
                     </ul>
 
                 </div>
